@@ -11,9 +11,9 @@ export default function Footer() {
                 <Row>
                     <Col lg={12} sm={12} md={12}>
                     <div className="socials">
-                    <span><a href="https://twitter.com/NeotechFinance"><img src={twitter} alt="" /></a></span>
-                    <span><a href="https://neotech.finance/"><img src={geo} alt="" /></a></span>
-                    <span><a href="https://t.me/neotechfinance"><img src={telegram} alt="" /></a></span>
+                    <span><a target="_blank" rel="noreferrer" href="https://twitter.com/NeotechFinance"><img src={twitter} alt="" /></a></span>
+                    <span><a target="_blank" rel="noreferrer" href="https://neotech.finance/"><img src={geo} alt="" /></a></span>
+                    <span><a target="_blank" rel="noreferrer" href="https://t.me/neotechfinance"><img src={telegram} alt="" /></a></span>
                     </div>
                     </Col>
                 </Row>

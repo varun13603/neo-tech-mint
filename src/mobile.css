@@ -1,0 +1,20 @@
+.nt-header{
+    padding: 0px 50px;
+}
+
+@media screen and (max-width: 600px) {
+    .nt-header{
+        padding: 0px 15px;
+    }
+    .nt-header button{
+        width: 60px;
+        padding: 6px 15px;
+    }
+    .nav-logo{
+        width:150px;
+    }
+
+    .layout-body{
+        margin-top:50px;
+    }
+}

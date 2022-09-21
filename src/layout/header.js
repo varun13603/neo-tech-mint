@@ -31,9 +31,9 @@ export const Header = () => {
   return (
     <div>
       <Navbar className={`${!atTop ? 'header-blur' : "header-nav"}`} collapseOnSelect fixed="top" expand="lg" bg="dark" variant="dark">
-        <Container fluid>
+        <Container className="nt-header" fluid>
           <Navbar.Brand href="#home">
-            <img src={logo} alt="NeoTech Logo" />
+            <img className="nav-logo" src={logo} alt="NeoTech Logo" />
           </Navbar.Brand>
           <span className="spacer"></span>
           <button className="btn-dark">My NFTs</button>
