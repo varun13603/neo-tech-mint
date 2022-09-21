@@ -20,6 +20,11 @@ export default function Mint() {
   const [isWhitelisted, setIsWhitelisted] = useState(false);
   const [total, setTotal] = useState(0);
   const [balanceNFT, setBalanceNFT] = useState(0);
+  const [showTxModal, setShowTxModal] = useState(false);
+  const [txSuccess, setTxSuccess] = useState(false);
+  const [txError, setTxError] = useState(false);
+  const [txEvent, setTxEvent] = useState(undefined);
+  const [txErrObj, setTxErrObj] = useState(undefined);
   useEffect(() => {
     getWalletAddress();
   }, []);
@@ -85,8 +90,10 @@ export default function Mint() {
 
   const getWalletAddress = async () => {
     try {
+        console.log("Called")
       if (window.tronLink) {
         if (window.tronLink.tronWeb) {
+            console.log("Called2")
           const x = await window.tronLink.request({
             method: "tron_requestAccounts",
           });
@@ -126,15 +133,15 @@ export default function Mint() {
       if (time > saleStart || time < presaleStart) {
         // general sale price
         setTotal(mints * salePrice);
-      } else if (time > presaleStart && time < saleStart) {
-        if (isWhitelisted) {
+      } else if (time > presaleStart && time < saleStart && isWhitelisted) {
+        
           setTotal(mints * preSalePrice);
-        }
+        
       } else {
         setTotal(mints * salePrice);
       }
     }
-  }, [mints, presaleStart, saleStart, salePrice, preSalePrice]);
+  }, [mints, presaleStart, saleStart, salePrice, preSalePrice, isWhitelisted]);
   const spinMints = (dir) => {
     if (dir === "+") {
       if (mints < 5) setMints(mints + 1);
@@ -153,13 +160,13 @@ export default function Mint() {
         if (x.code === 200) {
           setAddress(window.tronWeb.defaultAddress.base58);
         }
-      }else if(!window.tronLink.ready){
+      } else if (!window.tronLink.ready) {
         const x = await window.tronLink.request({
-            method: "tron_requestAccounts",
-          });
-          if (x.code === 200) {
-            setAddress(window.tronWeb.defaultAddress.base58);
-          }
+          method: "tron_requestAccounts",
+        });
+        if (x.code === 200) {
+          setAddress(window.tronWeb.defaultAddress.base58);
+        }
       } else {
         alert("Please Unlock/Install TronnLink wallet.");
       }
@@ -168,42 +175,124 @@ export default function Mint() {
     }
   };
 
-  const executeSale = async() => {
-    try{
-        console.log(window.tronWeb.toSun(total));
-
-        contract.mint(mints).watch((err, eventResult) => {
-            if (err) {
-                return console.error('Error with "method" event:', err);
-            }
-            if (eventResult) { 
-                console.log('eventResult:',eventResult);
+  const executeSale = async () => {
+    try {
+      console.log(window.tronWeb.toSun(total));
+      setShowTxModal(true);
+      contract.Transfer().watch((err, eventResult) => {
+        if (err) {
+          return console.error('Error with "method" event:', err);
+        }
+        if (eventResult) {
+          console.log("eventResult:", eventResult);
+          setTxEvent(eventResult);
+        }
+      });
+      contract.methods
+        .mint(mints)
+        .send({
+          from: address,
+          callValue: window.tronWeb.toSun(total),
+          shouldPollResponse: true,
+        })
+        .then((res) => {
+          console.log("result", res);
+          setTxSuccess(true);
+        })
+        .catch((err) => {
+            if(err === "Confirmation declined by user"){
+                setTxError(true);
+                setTxErrObj({
+                    output:{
+                        contractResult:[window.tronWeb.toHex("Confirmation declined by user")]
+                    }
+                })
+            }else{
+                console.log(
+                    "err",
+                    window.tronWeb.toAscii(err.output.contractResult[0]).toString()
+                  );
+                  setTxError(true);
+                  setTxErrObj(err);
+                
             }
           });
-         contract.methods.mint(mints).send({
+    } catch (err) {
+      console.log(
+        "err",
+        window.tronWeb.toAscii(err.output.contractResult[0]).toString()
+      );
+    }
+  };
+
+  const executePresale = async () =>{
+    try {
+        console.log(window.tronWeb.toSun(total));
+        setShowTxModal(true);
+        contract.Transfer().watch((err, eventResult) => {
+          if (err) {
+            return console.error('Error with "method" event:', err);
+          }
+          if (eventResult) {
+            console.log("eventResult:", eventResult);
+            setTxEvent(eventResult);
+          }
+        });
+        contract.methods
+          .presaleMint(mints)
+          .send({
             from: address,
             callValue: window.tronWeb.toSun(total),
-            shouldPollResponse: true
-        }).then(res => {
-            console.log("result",res)
-        }).catch(err => {
-            console.log("err", window.tronWeb.toAscii(err.output.contractResult[0]).toString())
-        })
-        
-    }catch(err){
-        console.log("err", window.tronWeb.toAscii(err.output.contractResult[0]).toString())
-    }
+            shouldPollResponse: true,
+          })
+          .then((res) => {
+            console.log("result", res);
+            setTxSuccess(true);
+          })
+          .catch((err) => {
+              if(err === "Confirmation declined by user"){
+                  setTxError(true);
+                  setTxErrObj({
+                      output:{
+                          contractResult:[window.tronWeb.toHex("Confirmation declined by user")]
+                      }
+                  })
+              }else{
+                  console.log(
+                      "err",
+                      window.tronWeb.toAscii(err.output.contractResult[0]).toString()
+                    );
+                    setTxError(true);
+                    setTxErrObj(err);
+                  
+              }
+            });
+      } catch (err) {
+        console.log(
+          "err",
+          window.tronWeb.toAscii(err.output.contractResult[0]).toString()
+        );
+      }
   }
   const handleMint = () => {
     const time = Math.floor(new Date().getTime() / 1000);
-    if(time >= presaleStart && time < saleStart){
-        //Presale
+    if (isWhitelisted && time >= presaleStart && time < saleStart) {
+      //Presale
+      executePresale();
+    } else {
+      //Sale
+      executeSale();
     }
-    else{
-        //Sale
-        executeSale();
-    }
-  }
+  };
+
+  const closeTxModal = () => {
+    console.log("hit");
+    setShowTxModal(false);
+    setTxSuccess(false);
+    setTxErrObj(undefined);
+    setTxError(false);
+    setTxEvent(undefined);
+  };
   return (
     <div className="mint-root" id="mint">
       <Container>
@@ -299,11 +388,20 @@ export default function Mint() {
             </button>
           )}
           {address !== "" && (
-            <button onClick={handleMint} className="link-btn">Mint NeoTech NFTs</button>
+            <button onClick={handleMint} className="link-btn">
+              Mint NeoTech NFTs
+            </button>
           )}
         </Row>
       </Container>
-      <TxModal showTxModal={true} hadleClose={() => {}} />
+      <TxModal
+        showTxModal={showTxModal}
+        txSuccess={txSuccess}
+        txError={txError}
+        errObj={txErrObj}
+        txEvent={txEvent}
+        handleClose={closeTxModal}
+      />
     </div>
   );
 }
