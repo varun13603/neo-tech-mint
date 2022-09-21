@@ -20,19 +20,21 @@ export default function HowToMint() {
         </Row>
         <Row className="mint-steps">
           <Col className="mint-step" lg={3} md={12} sm={12}>
+            <div className="htm-box">
             <img src={one} alt="Step one" />
+            </div>
             <span>Connect your wallet</span>
           </Col>
           <Col className="mint-step" lg={3} md={12} sm={12}>
-            <img src={two} alt="Step one" />
+            <div className="htm-box" ><img src={two} alt="Step one" /></div>
             <span>Select your quantity</span>
           </Col>
           <Col className="mint-step" lg={3} md={12} sm={12}>
-            <img src={three} alt="Step one" />
+            <div className="htm-box" ><img src={three} alt="Step one" /></div>
             <span>Confirm the transaction</span>
           </Col>
           <Col className="mint-step" lg={3} md={12} sm={12}>
-            <img src={four} alt="Step one" />
+            <div className="htm-box"><img src={four} alt="Step one" /></div>
             <span>Receive your NFTs</span>
           </Col>
         </Row>

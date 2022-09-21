@@ -329,7 +329,7 @@ export default function Mint() {
           </Col>
         </Row>
         <Row className="m-select">
-          <Col lg={6} md={6} sm={12}>
+          <Col lg={6} md={6} sm={6}>
             <div className="m-spinner">
               <button onClick={() => spinMints("+")}>+</button>
 
@@ -342,10 +342,12 @@ export default function Mint() {
               display: "flex",
               justifyContent: "flex-end",
               alignItems: "center",
+              flexDirection: "row",
+              textAlign: "right"
             }}
             lg={6}
             md={6}
-            sm={12}
+            sm={6}
           >
             <h3 style={{ marginRight: "16px" }}>5 Max</h3>
           </Col>

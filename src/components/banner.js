@@ -6,7 +6,7 @@ export default function Banner() {
     <div className="banner">
       <Container className="banner-cont">
         <Row className="banner-row">
-          <Col className="left" lg={7} md={6} sm={12}>
+          <Col className="left" lg={7} md={12} sm={12}>
             <h1>
               Own the <strong className="big">META FUTURE</strong>
             </h1>
@@ -21,7 +21,7 @@ export default function Banner() {
             </p>
             <a href="#mint" className="btn-light">Mint Now</a>
           </Col>
-          <Col className="right" lg={5} md={6} sm={12}>
+          <Col className="right" lg={5} md={12} sm={12}>
             <img src={bannerBg} alt="Banner" />
           </Col>
         </Row>
