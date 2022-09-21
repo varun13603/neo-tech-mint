@@ -1,38 +1,268 @@
-.App {
+.spacer{
+  flex: 1 1 auto;
+}
+
+
+.btn-dark{
+  all: unset;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 50px;
+  font-weight: 500;
+  border-radius: 20px;
+}
+.btn-dark:hover{
+  background-color: whitesmoke;
+  color: black;
+}
+.header-blur{
+  opacity: 0.8;
+  backdrop-filter: blur(5px) !important;
+  background-color: rgba(11, 19, 48, 0.7) !important;
+}
+.header-nav{
+  background-image: linear-gradient(to right, #3d224e, #0e173b);
+}
+.layout-body{
+  margin-top: 70px;
+}
+.banner{
+  height: calc(100vh - 70px) !important;
+  background-image: linear-gradient(to right, #3d224e, #0e173b);
+}
+.banner-cont{
+  height: 100%;
+
+}
+.banner-row{
+  height: 100%;
+}
+.banner .left{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.banner .right{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.right img{
+  height: 100%;
+}
+
+.left h1,p{
+  color: whitesmoke;
+}
+.left p{
+  font-size: 1.2rem;
+}
+
+.big{
+  font-size: 3.5rem;
+}
+
+.btn-light{
+  all: unset;
+  color: black;
+  border: 1px solid white;
+  padding: 5px 50px;
+  font-weight: 500;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+}
+.howtomint{
+  background-color: #1a1138;
+}
+
+.mint-cont{
+  color: whitesmoke;
+  padding: 90px 0px;
+}
+
+.easy-step{
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #33b7fe;
+}
+
+.big-b{
+  font-size: 64px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 30px;
+}
+.mint-steps{
+  margin-top: 50px ;
+}
+.mint-step{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.mint-step span{
+  font-size: 40px;
+  padding: 0px;
+  line-height: 2.3rem;
+  padding-left: 15px;
+  font-weight: 700;
+}
+.mint-root{
+  padding: 90px 0px;
+}
+.mintHead{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mint-box{
+  border: 1px solid rgb(202, 201, 201);
+  margin-top: 40px;
+  border-radius: 8px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.m-left{
+  padding: 16px;
+  
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.t-mints{
+  margin-bottom: 30px;
+}
+.m-left img{
+  width: 100%;
+}
+.m-right{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.m-right-cont{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+.m-right-cont div{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.m-right-cont p img{
+  margin-right: 15px;
+}
+
+.m-price{
+  margin-top: 15px;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.m-select{
+  border: 1px solid rgb(202, 201, 201);
+  margin-top: 30px;
+  border-radius: 8px;
+}
+
+.m-spinner{
+  padding: 16px
+}
+
+.m-spinner button{
+  all: unset;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
   color: white;
+  font-weight: 700;
+  font-size: 2.5rem;
+  background-color: #321b41;
+  cursor: pointer;
+}
+.m-spinner span{
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.m-spinner button:hover{
+  opacity: .7;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.m-total{
+  border-top:  1px solid rgb(202, 201, 201);
+  border-bottom: 1px solid rgb(202, 201, 201);
+  margin-top: 30px;
+  padding: 20px 16px;
+}
+.total-col{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.total-col div{
+  width: 100%;
+}
+
+.total-col div h3{
+  margin: 0px;
+}
+.total-col div h3 img{
+  margin-left: 8px;
+  width: 35px;
+}
+
+.total-col div h5 img{
+  margin-left: 8px;
+  width: 25px;
+}
+
+.btn-col{
+  width: 100%;
+}
+
+.btn-col button{
+  margin-top: 30px;
+  width: 100%;
+}
+
+.link-btn{
+  all: unset;
+  text-align: center;
+  width: 100%;
+  background-image: linear-gradient(to right, #3d224e, #0e173b);
+  padding: 10px;
+  border-radius: 15px;
+  color: whitesmoke;
+  font-weight: 500;
+}
+.link-btn:hover{
+  opacity: 0.9;
+}
+
+.footer{
+  width: 100%;
+}
+.socials{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  margin-top: 150px !important;
+  margin-bottom: 40px;
+}
+
+.socials img{
+  width: 2vw;
 }

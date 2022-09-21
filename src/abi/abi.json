@@ -1,0 +1,330 @@
+[
+  {
+    "inputs": [{ "name": "baseUri_", "type": "string" }],
+    "stateMutability": "Nonpayable",
+    "type": "Constructor"
+  },
+  {
+    "inputs": [
+      { "indexed": true, "name": "owner", "type": "address" },
+      { "indexed": true, "name": "approved", "type": "address" },
+      { "indexed": true, "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "Approval",
+    "type": "Event"
+  },
+  {
+    "inputs": [
+      { "indexed": true, "name": "owner", "type": "address" },
+      { "indexed": true, "name": "operator", "type": "address" },
+      { "name": "approved", "type": "bool" }
+    ],
+    "name": "ApprovalForAll",
+    "type": "Event"
+  },
+  {
+    "inputs": [
+      { "indexed": true, "name": "previousOwner", "type": "address" },
+      { "indexed": true, "name": "newOwner", "type": "address" }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "Event"
+  },
+  {
+    "inputs": [
+      { "indexed": true, "name": "from", "type": "address" },
+      { "indexed": true, "name": "to", "type": "address" },
+      { "indexed": true, "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "Transfer",
+    "type": "Event"
+  },
+  {
+    "inputs": [{ "name": "addresses", "type": "address[]" }],
+    "name": "addToWhiteList",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "bool" }],
+    "inputs": [{ "name": "addr", "type": "address" }],
+    "name": "addressInWhitelist",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "addresses", "type": "address[]" }],
+    "name": "airDropNFT",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "name": "to", "type": "address" },
+      { "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "approve",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "uint256" }],
+    "inputs": [{ "name": "owner", "type": "address" }],
+    "name": "balanceOf",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "string" }],
+    "name": "baseTokenURI",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "address" }],
+    "inputs": [{ "name": "tokenId", "type": "uint256" }],
+    "name": "getApproved",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "uint256" }],
+    "name": "getMintPrice",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "uint256" }],
+    "name": "getMintStartTime",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "uint256" }],
+    "name": "getNftPerWallet",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "uint256" }],
+    "name": "getNftPerWhitelistWallet",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "uint256" }],
+    "name": "getPresaleMintPrice",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "uint256" }],
+    "name": "getPresaleMintStartTime",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "bool" }],
+    "inputs": [
+      { "name": "owner", "type": "address" },
+      { "name": "operator", "type": "address" }
+    ],
+    "name": "isApprovedForAll",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "bool" }],
+    "name": "isCollectionRevealed",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "bool" }],
+    "name": "isMintingPaused",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "uint256" }],
+    "name": "maxSupply",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "quantity", "type": "uint256" }],
+    "name": "mint",
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "name": "to", "type": "address" },
+      { "name": "id", "type": "uint256" }
+    ],
+    "name": "mintById",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "string" }],
+    "name": "name",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "address" }],
+    "name": "owner",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "address" }],
+    "inputs": [{ "name": "tokenId", "type": "uint256" }],
+    "name": "ownerOf",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "quantity", "type": "uint256" }],
+    "name": "presaleMint",
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "addresses", "type": "address[]" }],
+    "name": "removeFromWhiteList",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "name": "renounceOwnership",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "name": "revealCollection",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "name": "from", "type": "address" },
+      { "name": "to", "type": "address" },
+      { "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "safeTransferFrom",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "name": "from", "type": "address" },
+      { "name": "to", "type": "address" },
+      { "name": "tokenId", "type": "uint256" },
+      { "name": "_data", "type": "bytes" }
+    ],
+    "name": "safeTransferFrom",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "name": "operator", "type": "address" },
+      { "name": "approved", "type": "bool" }
+    ],
+    "name": "setApprovalForAll",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "newUri", "type": "string" }],
+    "name": "setBaseURI",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "newPrice", "type": "uint256" }],
+    "name": "setMintPrice",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "newLimit", "type": "uint256" }],
+    "name": "setNftPerWallet",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "newLimit", "type": "uint256" }],
+    "name": "setNftPerWhitelistWallet",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "newPrice", "type": "uint256" }],
+    "name": "setPresaleMintPrice",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "newTimestamp", "type": "uint256" }],
+    "name": "setPresaleStartTime",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "newTimestamp", "type": "uint256" }],
+    "name": "setSaleStartTime",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "bool" }],
+    "inputs": [{ "name": "interfaceId", "type": "bytes4" }],
+    "name": "supportsInterface",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "string" }],
+    "name": "symbol",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "name": "toggleMinting",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "string" }],
+    "inputs": [{ "name": "tokenId", "type": "uint256" }],
+    "name": "tokenURI",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "outputs": [{ "type": "uint256" }],
+    "name": "totalSupply",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "name": "from", "type": "address" },
+      { "name": "to", "type": "address" },
+      { "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "transferFrom",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "newOwner", "type": "address" }],
+    "name": "transferOwnership",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  { "name": "withdrawAll", "stateMutability": "nonpayable", "type": "function" }
+]
