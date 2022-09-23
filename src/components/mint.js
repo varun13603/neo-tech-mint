@@ -331,10 +331,10 @@ export default function Mint() {
         <Row className="m-select">
           <Col lg={6} md={6} sm={6}>
             <div className="m-spinner">
-              <button onClick={() => spinMints("+")}>+</button>
+              <button onClick={() => spinMints("-")}>-</button>
 
               <span>{mints}</span>
-              <button onClick={() => spinMints("-")}>-</button>
+              <button onClick={() => spinMints("+")}>+</button>
             </div>
           </Col>
           <Col
