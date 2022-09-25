@@ -12,8 +12,8 @@ export default function Mint() {
   const [address, setAddress] = useState("");
   const [contract, setContract] = useState(undefined);
   const [balanceTRX, setBalanceTRX] = useState(0);
-  const [salePrice, setSalePrice] = useState(5500);
-  const [preSalePrice, setPreSalePrice] = useState(8500);
+  const [salePrice, setSalePrice] = useState(8500);
+  const [preSalePrice, setPreSalePrice] = useState(5500);
   const [saleStart, setSaleStart] = useState(0);
   const [presaleStart, setPresaleStart] = useState(0);
   const [totalSupply, setTotalSupply] = useState(0);
