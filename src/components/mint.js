@@ -314,7 +314,7 @@ export default function Mint() {
                 <p className="m-price">
                   <img src={trxRed} width={25} alt="TRX logo" />
                   <b>
-                    {preSalePrice !== 0 ? `${preSalePrice} TRX` : " 5500 TRX"}
+                    {preSalePrice !== 0 ? `${preSalePrice} TRX` : " 5100 TRX"}
                   </b>
                 </p>
               </div>
@@ -322,7 +322,7 @@ export default function Mint() {
                 <span>General Sale:</span>
                 <p className="m-price">
                   <img src={trxRed} width={25} alt="TRX logo" />
-                  <b>{salePrice !== 0 ? `${salePrice} TRX` : " 8500 TRX"}</b>
+                  <b>{salePrice !== 0 ? `${salePrice} TRX` : " 7700 TRX"}</b>
                 </p>
               </div>
             </div>
