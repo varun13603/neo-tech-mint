@@ -349,7 +349,7 @@ export default function Mint() {
             md={6}
             sm={6}
           >
-            <h3 style={{ marginRight: "16px" }}>5 Max</h3>
+            <h3 style={{ marginRight: "16px" }}>10 Max</h3>
           </Col>
         </Row>
         <Row className="m-total">
