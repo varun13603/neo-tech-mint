@@ -144,7 +144,7 @@ export default function Mint() {
   }, [mints, presaleStart, saleStart, salePrice, preSalePrice, isWhitelisted]);
   const spinMints = (dir) => {
     if (dir === "+") {
-      if (mints > 5) setMints(mints + 1);
+      if (mints < 10) setMints(mints + 1);
     }
     if (dir === "-") {
       if (mints > 1) setMints(mints - 1);
